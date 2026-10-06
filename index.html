@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baba ♡ Baba - Our Anniversary</title>
+  <style>
+    :root {
+      --primary: #e63946;
+      --secondary: #ffb703;
+      --bg-dark: #0f172a;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.15);
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --accent: #f43f5e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 10px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .hero p.subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .date-badge {
+      display: inline-block;
+      background: rgba(244, 63, 94, 0.2);
+      border: 1px solid var(--accent);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fecdd3;
+      margin-bottom: 20px;
+    }
+
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .counter-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 10px 5px;
+      text-align: center;
+    }
+
+    .counter-value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .counter-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    h2.section-title {
+      font-size: 1.4rem;
+      margin: 30px 0 15px;
+      text-align: center;
+    }
+
+    .month-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .month-header {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .month-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .month-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .month-content {
+      display: none;
+      padding: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .month-card.active .month-content {
+      display: block;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .photo-item {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .upload-btn-label {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .upload-input {
+      display: none;
+    }
+
+    .letter-card {
+      background: rgba(244,63,94,0.1);
+      border: 1px solid rgba(244,63,94,0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .letter-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #f1f5f9;
+      white-space: pre-line;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 80vh; border-radius: 10px; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="hero">
+      <div class="date-badge">October 7, 2025 — October 7, 2026</div>
+      <h1>Baba ♡ Baba</h1>
+      <p class="subtitle">365 Days. 12 Months. Countless Memories.</p>
+
+      <div class="counter-grid">
+        <div class="counter-card"><div class="counter-value" id="days">365</div><div class="counter-label">Days</div></div>
+        <div class="counter-card"><div class="counter-value" id="hours">00</div><div class="counter-label">Hours</div></div>
+        <div class="counter-card"><div class="counter-value" id="minutes">00</div><div class="counter-label">Mins</div></div>
+        <div class="counter-card"><div class="counter-value" id="seconds">00</div><div class="counter-label">Secs</div></div>
+      </div>
+    </div>
+
+    <section>
+      <h2 class="section-title">Our 12 Months ♡</h2>
+      <div id="timelineContainer"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">For My Baba</h2>
+      <div class="letter-card">
+        <div class="letter-text">
+Dear Baba,
+
+One year ago, on October 7th, we officially started our story. Looking back over these past twelve months, every single moment with you has become a memory I treasure deeply.
+
+From the late-night talks, the delicious dates, and the random giggles to the simple days where we did nothing at all—having you by my side has made ordinary life extraordinary.
+
+Happy 1st Anniversary, Baba. I love you! ♡
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+    <img id="lightboxImg" src="">
+  </div>
+
+  <script>
+    const months = [
+      "October 2025", "November 2025", "December 2025", "January 2026",
+      "February 2026", "March 2026", "April 2026", "May 2026",
+      "June 2026", "July 2026", "August 2026", "September 2026"
+    ];
+
+    const container = document.getElementById('timelineContainer');
+
+    months.forEach((dateStr, i) => {
+      const monthNum = i + 1;
+      const monthKey = `month_${monthNum}`;
+      const monthCard = document.createElement('div');
+      monthCard.className = `month-card ${i === 0 ? 'active' : ''}`;
+
+      monthCard.innerHTML = `
+        <div class="month-header" onclick="this.parentElement.classList.toggle('active')">
+          <div class="month-title">Month ${String(monthNum).padStart(2, '0')}</div>
+          <div class="month-date">${dateStr} ▾</div>
+        </div>
+        <div class="month-content">
+          <label class="upload-btn-label">
+            📷 + Add Photos
+            <input type="file" class="upload-input" accept="image/*" multiple onchange="handleUpload(event, '${monthKey}')">
+          </label>
+          <div class="photo-grid" id="grid_${monthKey}"></div>
+        </div>
+      `;
+      container.appendChild(monthCard);
+      renderPhotos(monthKey);
+    });
+
+    function handleUpload(event, key) {
+      const files = Array.from(event.target.files);
+      if (!files.length) return;
+
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const maxDim = 800;
+            let width = img.width;
+            let height = img.height;
+
+            if (width > height && width > maxDim) {
+              height *= maxDim / width;
+              width = maxDim;
+            } else if (height > maxDim) {
+              width *= maxDim / height;
+              height = maxDim;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0, width, height);
+            const compressed = canvas.toDataURL('image/jpeg', 0.7);
+
+            const saved = JSON.parse(localStorage.getItem(key) || '[]');
+            saved.push(compressed);
+            try {
+              localStorage.setItem(key, JSON.stringify(saved));
+              renderPhotos(key);
+            } catch (err) {
+              alert("Storage full! Try adding fewer photos at a time.");
+            }
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderPhotos(key) {
+      const grid = document.getElementById(`grid_${key}`);
+      if (!grid) return;
+      const saved = JSON.parse(localStorage.getItem(key) || '[]');
+      grid.innerHTML = saved.map(src => `
+        <div class="photo-item" onclick="openLightbox('${src}')">
+          <img src="${src}">
+        </div>
+      `).join('');
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    const startDate = new Date('2025-10-07T00:00:00').getTime();
+    function updateCounter() {
+      const now = new Date().getTime();
+      const diff = now - startDate;
+      document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById('hours').textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+    }
+    setInterval(updateCounter, 1000);
+    updateCounter();
+  </script>
+</body>
+</html>
