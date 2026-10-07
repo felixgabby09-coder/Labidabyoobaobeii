@@ -20,12 +20,7 @@
       --shadow-soft: 0 10px 30px rgba(255, 182, 193, 0.2);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
 
     body {
       background-color: var(--bg-color);
@@ -39,22 +34,8 @@
       padding-bottom: 60px;
     }
 
-    .floating-hearts {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .heart {
-      position: absolute;
-      color: rgba(255, 133, 161, 0.25);
-      font-size: 18px;
-      animation: float 8s infinite linear;
-    }
+    .floating-hearts { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 0; }
+    .heart { position: absolute; color: rgba(255, 133, 161, 0.25); font-size: 18px; animation: float 8s infinite linear; }
 
     @keyframes float {
       0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
@@ -62,214 +43,55 @@
       100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
     }
 
-    .container {
-      max-width: 580px;
-      margin: 0 auto;
-      padding: 24px 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 30px 10px 10px;
-    }
+    .container { max-width: 580px; margin: 0 auto; padding: 24px 16px; position: relative; z-index: 1; }
+    .hero { text-align: center; padding: 30px 10px 10px; }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #ffe5ec;
-      border: 1px solid #ffb3c1;
-      color: #c9184a;
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 12px rgba(255, 179, 193, 0.3);
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #ffe5ec; border: 1px solid #ffb3c1; color: #c9184a;
+      padding: 6px 16px; border-radius: 30px; font-size: 0.82rem; font-weight: 600;
+      margin-bottom: 16px; box-shadow: 0 4px 12px rgba(255, 179, 193, 0.3);
     }
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #590d22;
-      margin-bottom: 6px;
-      letter-spacing: -0.5px;
-    }
+    h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: #590d22; margin-bottom: 6px; }
+    .subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; font-style: italic; }
 
-    .subtitle {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-      font-style: italic;
-    }
-
-    .counter-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-
+    .counter-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 30px; }
     .counter-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 12px 6px;
-      text-align: center;
-      box-shadow: var(--shadow-soft);
+      background: var(--card-bg); backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border); border-radius: 16px;
+      padding: 12px 6px; text-align: center; box-shadow: var(--shadow-soft);
     }
 
-    .counter-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #a4133c;
-    }
+    .counter-value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #a4133c; }
+    .counter-label { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
 
-    .counter-label {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-top: 2px;
-    }
-
-    section {
-      margin-top: 36px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      color: #590d22;
-      text-align: center;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
+    section { margin-top: 36px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #590d22; text-align: center; margin-bottom: 20px; }
 
     .month-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      margin-bottom: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      transition: all 0.3s ease;
+      background: var(--card-bg); backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border); border-radius: 20px;
+      margin-bottom: 14px; overflow: hidden; box-shadow: var(--shadow-soft);
     }
 
-    .month-header {
-      padding: 18px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
-    }
+    .month-header { padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .month-title { font-weight: 700; font-size: 1rem; color: #800f2f; }
+    .month-date { font-size: 0.82rem; color: var(--text-muted); }
 
-    .month-title {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #800f2f;
-    }
+    .month-content { display: none; padding: 16px; border-top: 1px dashed rgba(255, 182, 193, 0.4); }
+    .month-card.active .month-content { display: block; }
 
-    .month-date {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .photo-item { aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #fff; padding: 4px; border: 1px solid #ffe5ec; cursor: pointer; }
+    .photo-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
 
-    .month-content {
-      display: none;
-      padding: 0 16px 20px;
-      border-top: 1px dashed rgba(255, 182, 193, 0.4);
-    }
+    .letter-card { background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--card-border); border-radius: 24px; padding: 28px 22px; box-shadow: var(--shadow-soft); }
+    .letter-text { font-size: 0.96rem; line-height: 1.85; color: #4a3e3d; white-space: pre-line; }
 
-    .month-card.active .month-content {
-      display: block;
-    }
-
-    .upload-btn-label {
-      display: inline-block;
-      margin-top: 14px;
-      background: linear-gradient(135deg, #ff85a1, #fbb1bd);
-      color: white;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(255, 133, 161, 0.3);
-    }
-
-    .upload-input {
-      display: none;
-    }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .photo-item {
-      aspect-ratio: 1;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #fff;
-      padding: 4px;
-      border: 1px solid #ffe5ec;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-      cursor: pointer;
-    }
-
-    .photo-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .letter-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 28px 22px;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-    }
-
-    .letter-text {
-      font-size: 0.96rem;
-      line-height: 1.85;
-      color: #4a3e3d;
-      white-space: pre-line;
-    }
-
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(40, 20, 25, 0.85);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-      align-items: center; justify-content: center;
-      padding: 20px;
-    }
-
+    .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(40, 20, 25, 0.85); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
     .lightbox.active { display: flex; }
-    .lightbox img { max-width: 92%; max-height: 80vh; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .lightbox img { max-width: 92%; max-height: 80vh; border-radius: 16px; }
   </style>
 </head>
 <body>
@@ -329,88 +151,41 @@ I love you baba, I love you.
     const container = document.getElementById('timelineContainer');
 
     months.forEach((dateStr, i) => {
-      const monthNum = i + 1;
-      const monthKey = `month_${monthNum}`;
+      const monthNum = String(i + 1).padStart(2, '0');
+      const monthFolder = `photos/month${monthNum}`;
       const monthCard = document.createElement('div');
       monthCard.className = `month-card ${i === 0 ? 'active' : ''}`;
 
       monthCard.innerHTML = `
         <div class="month-header" onclick="this.parentElement.classList.toggle('active')">
-          <div class="month-title">Month ${String(monthNum).padStart(2, '0')}</div>
+          <div class="month-title">Month ${monthNum}</div>
           <div class="month-date">${dateStr} ▾</div>
         </div>
         <div class="month-content">
-          <label class="upload-btn-label">
-            📷 + Add Photos
-            <input type="file" class="upload-input" accept="image/*" multiple onchange="handleUpload(event, '${monthKey}')">
-          </label>
-          <div class="photo-grid" id="grid_${monthKey}"></div>
+          <div class="photo-grid" id="grid_month${monthNum}"></div>
         </div>
       `;
       container.appendChild(monthCard);
-      renderPhotos(monthKey);
+
+      // Fetch photo list from manifest.json
+      fetch(`${monthFolder}/manifest.json`)
+        .then(res => res.json())
+        .then(files => {
+          const grid = document.getElementById(`grid_month${monthNum}`);
+          grid.innerHTML = files.map(file => `
+            <div class="photo-item" onclick="openLightbox('${monthFolder}/${file}')">
+              <img src="${monthFolder}/${file}" loading="lazy">
+            </div>
+          `).join('');
+        })
+        .catch(() => {});
     });
-
-    function handleUpload(event, key) {
-      const files = Array.from(event.target.files);
-      if (!files.length) return;
-
-      files.forEach(file => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          const img = new Image();
-          img.onload = () => {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            const maxDim = 800;
-            let width = img.width;
-            let height = img.height;
-
-            if (width > height && width > maxDim) {
-              height *= maxDim / width;
-              width = maxDim;
-            } else if (height > maxDim) {
-              width *= maxDim / height;
-              height = maxDim;
-            }
-
-            canvas.width = width;
-            canvas.height = height;
-            ctx.drawImage(img, 0, 0, width, height);
-            const compressed = canvas.toDataURL('image/jpeg', 0.7);
-
-            const saved = JSON.parse(localStorage.getItem(key) || '[]');
-            saved.push(compressed);
-            try {
-              localStorage.setItem(key, JSON.stringify(saved));
-              renderPhotos(key);
-            } catch (err) {
-              alert("Storage full! Try adding fewer photos at a time.");
-            }
-          };
-          img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    function renderPhotos(key) {
-      const grid = document.getElementById(`grid_${key}`);
-      if (!grid) return;
-      const saved = JSON.parse(localStorage.getItem(key) || '[]');
-      grid.innerHTML = saved.map(src => `
-        <div class="photo-item" onclick="openLightbox('${src}')">
-          <img src="${src}">
-        </div>
-      `).join('');
-    }
 
     function openLightbox(src) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightbox').classList.add('active');
     }
 
-    // Floating heart background animation
     const heartsContainer = document.getElementById('heartsContainer');
     for (let i = 0; i < 12; i++) {
       const heart = document.createElement('div');
@@ -428,7 +203,7 @@ I love you baba, I love you.
       const diff = now - startDate;
       document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
       document.getElementById('hours').textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(Math.floor((diff % (1000 * 60 * 60))) / (1000 * 60)).padStart(2, '0');
       document.getElementById('seconds').textContent = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
     }
     setInterval(updateCounter, 1000);
