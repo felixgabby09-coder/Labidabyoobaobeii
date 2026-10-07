@@ -3,186 +3,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baba ♡ Baba - Our Anniversary</title>
+  <title>Baobei ♡ Labidab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #e63946;
-      --secondary: #ffb703;
-      --bg-dark: #0f172a;
-      --card-bg: rgba(255, 255, 255, 0.08);
-      --card-border: rgba(255, 255, 255, 0.15);
-      --text-main: #f8fafc;
-      --text-muted: #cbd5e1;
-      --accent: #f43f5e;
+      --bg-color: #fffafb;
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --card-border: rgba(255, 182, 193, 0.4);
+      --primary-pink: #ff85a1;
+      --soft-pink: #fbb1bd;
+      --accent-rose: #e63946;
+      --text-dark: #4a3e3d;
+      --text-muted: #8c7a7b;
+      --shadow-soft: 0 10px 30px rgba(255, 182, 193, 0.2);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(255, 229, 236, 0.8) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(255, 202, 212, 0.5) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-dark);
       overflow-x: hidden;
       line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    .floating-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 133, 161, 0.25);
+      font-size: 18px;
+      animation: float 8s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
     }
 
     .container {
-      max-width: 600px;
+      max-width: 580px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 24px 16px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero {
       text-align: center;
-      padding: 40px 10px 20px;
+      padding: 30px 10px 10px;
     }
 
-    .hero h1 {
-      font-size: 2.2rem;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .hero p.subtitle {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-
-    .date-badge {
-      display: inline-block;
-      background: rgba(244, 63, 94, 0.2);
-      border: 1px solid var(--accent);
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffe5ec;
+      border: 1px solid #ffb3c1;
+      color: #c9184a;
       padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+      border-radius: 30px;
+      font-size: 0.82rem;
       font-weight: 600;
-      color: #fecdd3;
-      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(255, 179, 193, 0.3);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #590d22;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-style: italic;
     }
 
     .counter-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
+      gap: 10px;
       margin-bottom: 30px;
     }
 
     .counter-card {
       background: var(--card-bg);
+      backdrop-filter: blur(10px);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 10px 5px;
+      border-radius: 16px;
+      padding: 12px 6px;
       text-align: center;
+      box-shadow: var(--shadow-soft);
     }
 
     .counter-value {
-      font-size: 1.3rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: var(--secondary);
+      color: #a4133c;
     }
 
     .counter-label {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--text-muted);
       text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
     }
 
-    h2.section-title {
-      font-size: 1.4rem;
-      margin: 30px 0 15px;
+    section {
+      margin-top: 36px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: #590d22;
       text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
     .month-card {
       background: var(--card-bg);
+      backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
-      border-radius: 14px;
+      border-radius: 20px;
       margin-bottom: 14px;
       overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s ease;
     }
 
     .month-header {
-      padding: 16px;
+      padding: 18px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
+      user-select: none;
     }
 
     .month-title {
       font-weight: 700;
       font-size: 1rem;
+      color: #800f2f;
     }
 
     .month-date {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
+      font-weight: 500;
     }
 
     .month-content {
       display: none;
-      padding: 15px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0 16px 20px;
+      border-top: 1px dashed rgba(255, 182, 193, 0.4);
     }
 
     .month-card.active .month-content {
       display: block;
     }
 
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .photo-item {
-      aspect-ratio: 1;
-      border-radius: 8px;
-      overflow: hidden;
-      background: rgba(0,0,0,0.3);
-      position: relative;
-    }
-
-    .photo-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     .upload-btn-label {
       display: inline-block;
-      background: var(--accent);
+      margin-top: 14px;
+      background: linear-gradient(135deg, #ff85a1, #fbb1bd);
       color: white;
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 20px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
-      text-align: center;
+      box-shadow: 0 4px 12px rgba(255, 133, 161, 0.3);
     }
 
     .upload-input {
       display: none;
     }
 
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .photo-item {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      padding: 4px;
+      border: 1px solid #ffe5ec;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      cursor: pointer;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
     .letter-card {
-      background: rgba(244,63,94,0.1);
-      border: 1px solid rgba(244,63,94,0.3);
-      border-radius: 16px;
-      padding: 20px;
-      margin-top: 20px;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
     }
 
     .letter-text {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #f1f5f9;
+      font-size: 0.96rem;
+      line-height: 1.85;
+      color: #4a3e3d;
       white-space: pre-line;
     }
 
@@ -190,23 +261,26 @@
       display: none;
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.9);
+      background: rgba(40, 20, 25, 0.85);
+      backdrop-filter: blur(8px);
       z-index: 1000;
       align-items: center; justify-content: center;
       padding: 20px;
     }
 
     .lightbox.active { display: flex; }
-    .lightbox img { max-width: 100%; max-height: 80vh; border-radius: 10px; }
+    .lightbox img { max-width: 92%; max-height: 80vh; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
   </style>
 </head>
 <body>
 
+  <div class="floating-hearts" id="heartsContainer"></div>
+
   <div class="container">
     <div class="hero">
-      <div class="date-badge">October 7, 2025 — October 7, 2026</div>
-      <h1>Baba ♡ Baba</h1>
-      <p class="subtitle">365 Days. 12 Months. Countless Memories.</p>
+      <div class="badge">✨ October 7, 2025 — October 7, 2026 ✨</div>
+      <h1>Baobei ♡ Labidab</h1>
+      <p class="subtitle">365 Days of Us</p>
 
       <div class="counter-grid">
         <div class="counter-card"><div class="counter-value" id="days">365</div><div class="counter-label">Days</div></div>
@@ -217,21 +291,25 @@
     </div>
 
     <section>
-      <h2 class="section-title">Our 12 Months ♡</h2>
+      <h2 class="section-title">Our Timeline 🤍</h2>
       <div id="timelineContainer"></div>
     </section>
 
     <section>
-      <h2 class="section-title">For My Baba</h2>
+      <h2 class="section-title">To My Dearest Baba 💌</h2>
       <div class="letter-card">
         <div class="letter-text">
-Dear Baba,
+“I hate you. I don’t love you anymore. Just leave. I never should’ve forced us. Goodbye, I hope to never see you again.”
 
-One year ago, on October 7th, we officially started our story. Looking back over these past twelve months, every single moment with you has become a memory I treasure deeply.
+These are words you will never hear me say.
 
-From the late-night talks, the delicious dates, and the random giggles to the simple days where we did nothing at all—having you by my side has made ordinary life extraordinary.
+To my dearest baba, I love you. The affection I carry with me was molded in murky waters and heavy rain. It grew and grew, without stopping. 
 
-Happy 1st Anniversary, Baba. I love you! ♡
+I am one for words, but the breath you take away whenever I see you takes away the right of speech from my body, only being able to express it through my love. 
+
+I know I love to show you I care with my words, but I believe for me, this time, simplicity wins. It matters not how I try to map out my feelings, just a single kiss could blow it all away.
+
+I love you baba, I love you.
         </div>
       </div>
     </section>
@@ -330,6 +408,18 @@ Happy 1st Anniversary, Baba. I love you! ♡
     function openLightbox(src) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightbox').classList.add('active');
+    }
+
+    // Floating heart background animation
+    const heartsContainer = document.getElementById('heartsContainer');
+    for (let i = 0; i < 12; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '♡';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (6 + Math.random() * 6) + 's';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      heartsContainer.appendChild(heart);
     }
 
     const startDate = new Date('2025-10-07T00:00:00').getTime();
